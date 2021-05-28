@@ -100,7 +100,7 @@ configure () {
         -D PYTHON3_INCLUDE_DIR=/usr/local/include/python3.9/
         -D PYTHON3_LIBRARY=/usr/local/lib/libpython3.9.a
         -D PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.9/site-packages/
-        -D PYTHON3_NUMPY_INCLUDE_DIRS=/home/jnebrera/.local/lib/python3.9/site-packages/numpy/core/include
+        -D PYTHON3_NUMPY_INCLUDE_DIRS=~/.local/lib/python3.9/site-packages/numpy/core/include
         -D CMAKE_BUILD_TYPE=RELEASE
         -D CMAKE_INSTALL_PREFIX=${PREFIX}
         -D CUDA_ARCH_BIN=5.3,6.2,7.2
