@@ -60,27 +60,38 @@ install_dependencies () {
         git \
         gfortran \
         libatlas-base-dev \
+        libblas-dev \
         libcanberra-gtk3-module \
         libdc1394-22-dev \
         libeigen3-dev \
+        libfaac-dev \
+        libgflags-dev \
         libglew-dev \
+        libgoogle-glog-dev \
         libgstreamer-plugins-base1.0-dev \
         libgstreamer-plugins-good1.0-dev \
         libgstreamer1.0-dev \
         libgtk-3-dev \
+        libgtk2.0-dev \
+        libcanberra-gtk* \
         libjpeg-dev \
         libjpeg8-dev \
         libjpeg-turbo8-dev \
         liblapack-dev \
         liblapacke-dev \
+        libmp3lame-dev \
         libopenblas-dev \
+        libopencore-amrnb-dev \
+        libopencore-amrwb-dev \
         libpng-dev \
         libpostproc-dev \
         libtbb-dev \
         libtbb2 \
         libtesseract-dev \
+        libtheora-dev \
         libtiff-dev \
         libv4l-dev \
+        libvorbis-dev \
         libxine2-dev \
         libxvidcore-dev \
         libx264-dev \
@@ -117,7 +128,20 @@ configure () {
         -D WITH_CUDA=ON
         -D WITH_CUDNN=ON
         -D WITH_GSTREAMER=ON
+        -D WITH_4VL=ON
         -D WITH_LIBV4L=ON
+        -D WITH_QT=OFF
+        -D BUILD_TIFF=ON
+        -D WITH_FFMPEG=ON
+        -D WITH_GSTREAMER=ON
+        -D ENABLE_FAST_MATH=ON
+        -D WITH_OPENCL=OFF
+        -D WITH_CUBLAS=ON
+        -D WITH_OPENMP=ON
+        -D WITH_TBB=ON
+        -D BUILD_TBB=ON
+        -D BUILD_TESTS=OFF
+        -D WITH_EIGEN=ON
         -D WITH_OPENGL=ON"
 
     if [[ "$1" != "test" ]] ; then
