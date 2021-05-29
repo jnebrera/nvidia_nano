@@ -19,18 +19,21 @@ fi
 
 cleanup () {
 # https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
-    while true ; do
-        echo "Do you wish to remove temporary build files in /tmp/build_opencv ? "
-        if ! [[ "$1" -eq "--test-warning" ]] ; then
-            echo "(Doing so may make running tests on the build later impossible)"
-        fi
-        read -p "Y/N " yn
-        case ${yn} in
-            [Yy]* ) rm -rf /tmp/build_opencv ; break;;
-            [Nn]* ) exit ;;
-            * ) echo "Please answer yes or no." ;;
-        esac
-    done
+
+    rm -rf /tmp/build_opencv
+
+#    while true ; do
+#        echo "Do you wish to remove temporary build files in /tmp/build_opencv ? "
+#        if ! [[ "$1" -eq "--test-warning" ]] ; then
+#            echo "(Doing so may make running tests on the build later impossible)"
+#        fi
+#        read -p "Y/N " yn
+#        case ${yn} in
+#            [Yy]* ) rm -rf /tmp/build_opencv ; break;;
+#            [Nn]* ) exit ;;
+#            * ) echo "Please answer yes or no." ;;
+#        esac
+#    done
 }
 
 setup () {
@@ -52,6 +55,7 @@ git_source () {
 install_dependencies () {
     # open-cv has a lot of dependencies, but most can be found in the default
     # package repository or should already be installed (eg. CUDA).
+    # I have removed some packages from here as they are blocked by hardware accelerated ffmpeg
     echo "Installing build dependencies."
     sudo apt-get update
     sudo apt-get dist-upgrade -y --autoremove
